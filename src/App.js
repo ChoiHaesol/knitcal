@@ -1,25 +1,50 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import Calculator from './Pages/Calculator/index';
+import Main from './Pages/Main';
+import Layout from './Pages/Layout';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: '#AAABD3'
+    },
+    secondary: {
+      main: '#F7AA97'
+    },
+    error: {
+      main: '#009688'
+    },
+    text: {
+      primary: '#000000',
+      
+    }
+  },
+})
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <ThemeProvider theme={theme}>
+        <Layout>
+          <Switch>
+            <Route path="/" exact="true">
+              <Main />
+            </Route>
+            <Route path="/calculator">
+              <Calculator />
+            </Route>
+          </Switch>
+        </Layout>
+      </ThemeProvider>
+    </Router>
+      
   );
 }
 
