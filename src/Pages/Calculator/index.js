@@ -6,6 +6,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import FormControl from '@material-ui/core/FormControl';
 import LengthAndSts from "./LengthAndSts";
+import Pattern from "./Pattern"
 
 
 const useStyles = makeStyles((theme) => ({
@@ -21,8 +22,8 @@ const getPage = (value) => {
     switch (value) {
         case 0:            
             return <LengthAndSts />        
-        // case 1:            
-        //     return <PaymentForm />    
+        case 1:            
+            return <Pattern />    
         default:
             return <LengthAndSts />
     }

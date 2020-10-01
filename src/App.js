@@ -3,6 +3,7 @@ import {createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import Calculator from './Pages/Calculator/index';
 import Main from './Pages/Main';
 import Layout from './Pages/Layout';
+import Shortcut from './Pages/Shortcut';
 import {
   BrowserRouter as Router,
   Switch,
@@ -38,6 +39,9 @@ function App() {
             </Route>
             <Route path="/calculator">
               <Calculator />
+            </Route>
+            <Route path="/shortcut">
+              <Shortcut />
             </Route>
           </Switch>
         </Layout>

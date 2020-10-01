@@ -7,31 +7,33 @@ import Button from '@material-ui/core/Button';
 
 import Alert from '@material-ui/lab/Alert';
 
-function LengthToSts() {
+function Pattern() {
 
-  const [input, setInput] = useState({
-    myGauge: '',
-    length: '',
-  })
+    const [input, setInput] = useState({
+        myGauge: '',
+        patternGauge: '',
+        patternsts: '',
+      })
 
-  const [result, setResult] = useState('');
+      const [result, setResult] = useState('');
 
-  const [alert, setAlert] = useState(false);
+      const [alert, setAlert] = useState(false);
+    
+      const inputChange = (e) => {
+        setInput({...input, [e.target.name]: e.target.value});
+      }
 
-  const inputChange = (e) => {
-    setInput({...input, [e.target.name]: e.target.value});
-  }
+      const buttonClick = () => {
+        setResult('')
+        if(input.myGauge === '' || input.patternGauge === '' || input.patternsts=== ''){
+          setAlert(true)
+        } else {
+          setAlert(false);
+          const sts = input.myGauge * input.patternsts / input.patternGauge;
+          setResult(`떠야할 코(단)수는 ${sts}코(단) 입니다.`)
+        }
+      }
 
-  const buttonClick = () => {
-    setResult('')
-    if(input.myGauge === '' || input.length === ''){
-      setAlert(true)
-    } else {
-      setAlert(false);
-      const sts = input.myGauge * input.length / 10;
-      setResult(`떠야할 코(단)수는 ${sts}코(단) 입니다.`)
-    }
-  }
     return (
         <Grid container spacing={3}>
         
@@ -51,14 +53,30 @@ function LengthToSts() {
         <Grid item xs={12}>
             
                 <TextField
-                label="뜨고싶은 길이"
+                label="도안 게이지"
                 fullWidth
                 type="number"
                 InputProps={{
-                    endAdornment: <InputAdornment position="end">cm</InputAdornment>,
+                    endAdornment: <InputAdornment position="end">코(단)</InputAdornment>,
                   }}
-                name="length"
-                value={input.length}
+                name="patternGauge"
+                value={input.patternGauge}
+                onChange={inputChange}
+              />
+            
+          
+        </Grid>
+        <Grid item xs={12}>
+            
+                <TextField
+                label="도안 콧수"
+                fullWidth
+                type="number"
+                InputProps={{
+                    endAdornment: <InputAdornment position="end">코(단)</InputAdornment>,
+                  }}
+                name="patternsts"
+                value={input.patternsts}
                 onChange={inputChange}
               />
             
@@ -87,4 +105,4 @@ function LengthToSts() {
     )
 }
 
-export default LengthToSts
+export default Pattern

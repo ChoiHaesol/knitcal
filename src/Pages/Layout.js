@@ -61,7 +61,7 @@ function Layout(props) {
           <Toolbar>
             <RouterLink to="/" style={{ color: 'inherit', textDecoration: 'none' }}>
               <Typography variant="h6" color="inherit" noWrap>
-              🧵뜨계산기
+              🧵 뜨계산기
               </Typography>
             </RouterLink>
             
