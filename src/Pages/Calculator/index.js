@@ -8,19 +8,6 @@ import FormControl from '@material-ui/core/FormControl';
 import LengthAndSts from "./LengthAndSts";
 
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
-
 const useStyles = makeStyles((theme) => ({
   formControl: {
     margin: theme.spacing(3, 0),

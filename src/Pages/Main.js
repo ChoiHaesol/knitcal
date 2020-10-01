@@ -53,7 +53,7 @@ function Main() {
                 </Grid>
                 <Grid item xs={12}>
                   <Button variant="outlined" color="primary" fullWidth>
-                    홈 화면에 추가방법
+                    홈 화면 추가방법
                   </Button>
                 </Grid>
               </Grid>

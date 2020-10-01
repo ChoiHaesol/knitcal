@@ -7,15 +7,14 @@ import Paper from '@material-ui/core/Paper';
 import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
 import { Link as RouterLink } from "react-router-dom";
-import IconButton from '@material-ui/core/IconButton';
 
 
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
+      <Link color="inherit" href="/">
+        뜨계산기
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -54,10 +53,6 @@ const useStyles = makeStyles((theme) => ({
 function Layout(props) {
 
     const classes = useStyles();
-
-    const iconClick = () =>{
-      // document.location.href = "/"
-    }
 
     return (
       <React.Fragment>

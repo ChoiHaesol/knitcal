@@ -7,7 +7,6 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from "react-router-dom";
 
 const theme = createMuiTheme({
@@ -19,7 +18,7 @@ const theme = createMuiTheme({
       main: '#F7AA97'
     },
     error: {
-      main: '#009688'
+      main: '#ff0000'
     },
     text: {
       primary: '#000000',
@@ -34,7 +33,7 @@ function App() {
       <ThemeProvider theme={theme}>
         <Layout>
           <Switch>
-            <Route path="/" exact="true">
+            <Route path="/" exact={true}>
               <Main />
             </Route>
             <Route path="/calculator">

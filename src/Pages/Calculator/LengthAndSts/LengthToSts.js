@@ -1,11 +1,37 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import Button from '@material-ui/core/Button';
 
+import Alert from '@material-ui/lab/Alert';
+
 function LengthToSts() {
+
+  const [input, setInput] = useState({
+    myGauge: '',
+    length: '',
+  })
+
+  const [result, setResult] = useState('');
+
+  const [alert, setAlert] = useState(false);
+
+  const inputChange = (e) => {
+    setInput({...input, [e.target.name]: e.target.value});
+  }
+
+  const buttonClick = () => {
+    setResult('')
+    if(input.myGauge === '' || input.length === ''){
+      setAlert(true)
+    } else {
+      setAlert(false);
+      const sts = input.myGauge * input.length / 10;
+      setResult(`떠야할 코(단)수는 ${sts}코 입니다.`)
+    }
+  }
     return (
         <Grid container spacing={3}>
         
@@ -18,8 +44,8 @@ function LengthToSts() {
                 endAdornment: <InputAdornment position="end">코(단)</InputAdornment>,
               }}
             name="myGauge"
-            // value={input.myGauge}
-            // onChange={inputChange}
+            value={input.myGauge}
+            onChange={inputChange}
           />
         </Grid>
         <Grid item xs={12}>
@@ -32,8 +58,8 @@ function LengthToSts() {
                     endAdornment: <InputAdornment position="end">cm</InputAdornment>,
                   }}
                 name="length"
-                // value={input.length}
-                // onChange={inputChange}
+                value={input.length}
+                onChange={inputChange}
               />
             
           
@@ -43,14 +69,17 @@ function LengthToSts() {
             variant="contained" 
             color='primary' 
             fullWidth 
-            // onClick={buttonClick}
+            onClick={buttonClick}
           >
               변환하기
           </Button>
         </Grid>
         <Grid item xs={12}>
+            {alert &&
+            <Alert severity="error">모두 입력해 주세요!</Alert>
+            }
             <Typography variant="h6" gutterBottom align='center'>
-                떠야할 콧수는 <b>1000코</b> 입니다.
+                <b>{result}</b>
             </Typography>
         </Grid>
         
